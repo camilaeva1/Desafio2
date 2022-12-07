@@ -10,19 +10,19 @@ def prodvetor (p0, p1, p2):
 
 n = int(input()) #Número de árvores
 t = list(Topo(0,0) for i in range(n)) #lista de topos das árvores
-ch = list(0 for i in range(n))
+na = list(0 for i in range(n)) #número de árvores
 
 for i in range(n):
 	l = list(int(x) for x in input().split())
 	t[i].x, t[i].y = l[0], l[1] #Atribui (x,y) a cada topo
 
 t.sort() #Ordenar a lista de topos
-nch = 0 
+pa = 0 #posição da árvore
 
 for i in range(n):
-	while (nch > 1 and prodvetor(t[ch[nch-2]], t[ch[nch-1]], t[i]) >= 0): #Realiza a verificação, enquantro houver mais de um ponto na lista e analisando os dois últimos topos em relação ao que o macaco está (t[i])
-		nch -= 1;
-	ch[nch] = i
-	nch += 1;
+	while (pa > 1 and prodvetor(t[na[pa-2]], t[na[pa-1]], t[i]) >= 0): #Realiza a verificação, pa não sendo a primeira árvore e analisando os dois últimos topos em relação ao que o macaco está (t[i])
+		pa -= 1;
+	na[pa] = i
+	pa += 1;
 
-print(nch - 1)
+print(pa - 1)
