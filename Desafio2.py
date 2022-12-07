@@ -17,12 +17,12 @@ for i in range(n):
 	t[i].x, t[i].y = l[0], l[1] #Atribui (x,y) a cada topo
 
 t.sort() #Ordenar a lista de topos
-cont = 0 
+nch = 0 
 
 for i in range(n):
-	while (cont > 1 and prodvetor(t[ch[cont-2]], t[ch[cont-1]], t[i]) >= 0): #Realiza a verificação, enquantro houver mais de um ponto na lista e analisando os dois últimos topos em relação ao que o macaco está (t[i])
-		cont -= 1;
-	ch[cont] = i
-	cont += 1;
+	while (nch > 1 and prodvetor(t[ch[nch-2]], t[ch[nch-1]], t[i]) >= 0): #Realiza a verificação, enquantro houver mais de um ponto na lista e analisando os dois últimos topos em relação ao que o macaco está (t[i])
+		nch -= 1;
+	ch[nch] = i
+	nch += 1;
 
-print(cont - 1)
+print(nch - 1)
